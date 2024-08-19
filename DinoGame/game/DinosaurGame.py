@@ -2,7 +2,7 @@ import gymnasium as gym
 from gymnasium.spaces import Discrete, Dict, Box
 import numpy as np
 import pygame
-from dinosaur import Dinosaur
+from game.dinosaur import Dinosaur
 import random
 # import cv2
 
@@ -78,7 +78,7 @@ class DinosaurGame(gym.Env):
         self.player_x = self.dinosaur.x
         self.player_y = self.dinosaur.y
         self.player_speed = self.dinosaur.yvelocity
-        self.obstacle_speed *= 1+(self.score)/1000000
+        self.obstacle_speed = (self.score/100000)+3.8
         for i in self.obstacles:
             i[0] -= self.obstacle_speed
     

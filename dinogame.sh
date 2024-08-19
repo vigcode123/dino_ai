@@ -7,15 +7,16 @@ fi
 
 pip3 install -r requirements.txt
 
-if ! [ ./winner.pkl ]; then
-  echo -n “Enter Num Cores: “
-  read x
 
-  if ! [ ./checkpoint]; then
-    python3 gym_solver.py --num-cores=x
+if ! test -f ./DinoGame/model/winner.pkl ; then
+  read -p "Enter Num Cores:" x
+  echo Setting Number of Cores as $x
+
+  if ! test -f ./DinoGame/model/checkpoint ; then
+    python3 ./DinoGame/gym_solver.py --num-cores=$x
   else
-    python3 gym_solver.py --checkpoint checkpoint --num-cores=x
+    python3 ./DinoGame/gym_solver.py --checkpoint model/checkpoint --num-cores=$x
   fi
 else
-  python3 gym_best.py
+  python3 ./DinoGame/gym_best.py
 fi

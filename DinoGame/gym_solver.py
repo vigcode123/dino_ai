@@ -9,12 +9,11 @@ from neat import nn, population, statistics, parallel
 ### User Params ###
 gym.register(
         id='DinosaurGame-v0',
-        entry_point='DinosaurGame:DinosaurGame'
+        entry_point='game:DinosaurGame'
     )
-env = gym.make('DinosaurGame-v0')
-
 # The name of the game to solve
 game_name = 'DinosaurGame-v0'
+env = gym.make(game_name)
 
 ### End User Params ###
 
@@ -74,7 +73,7 @@ def train_network(env):
 
     # Simulation
     local_dir = os.path.dirname(__file__)
-    config_path = os.path.join(local_dir, 'gym_config.txt')
+    config_path = os.path.join(local_dir, './model/gym_config.txt')
     pop = population.Population(config_path)
     # Load checkpoint
     if args.checkpoint:
@@ -86,7 +85,7 @@ def train_network(env):
         pe = parallel.ParallelEvaluator(args.numCores, worker_evaluate_genome)
         pop.run(pe.evaluate, args.generations)
 
-    pop.save_checkpoint("checkpoint")
+    pop.save_checkpoint("./model/checkpoint")
 
     # Log statistics.
     statistics.save_stats(pop.statistics)
@@ -100,7 +99,7 @@ def train_network(env):
 
     # Save best network
     import pickle
-    with open('winner.pkl', 'wb') as output:
+    with open('./model/winner.pkl', 'wb') as output:
        pickle.dump(winner, output, 1)
 
     print('\nBest genome:\n{!s}'.format(winner))

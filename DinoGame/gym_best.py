@@ -5,7 +5,7 @@ import gymnasium as gym
 
 gym.register(
         id='DinosaurGame-v0',
-        entry_point='DinosaurGame:DinosaurGame'
+        entry_point='game:DinosaurGame'
     )
 env = gym.make('DinosaurGame-v0')
 
@@ -30,7 +30,7 @@ def simulate_species(net, env, episodes=1, steps=5000, render=False):
     print("Species fitness: %s" % str(fitness))
     return fitness
 
-with open('winner.pkl', 'rb') as output:
+with open('./model/winner.pkl', 'rb') as output:
     winner = pickle.load(output)
 
 
