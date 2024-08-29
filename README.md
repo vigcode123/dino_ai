@@ -1,6 +1,6 @@
 # dino_ai
-A Reinforcement Learning Program that can learn to play the Dino Game
-Compatibility with Windows not tested.
+A Reinforcement Learning Program outfitted with NeuroEvolution that can learn to play the Dino Game.
+Update: Compatibility with Windows not tested.
 
 ## Requirements
 - Python3.12 or higher (64-bit)
