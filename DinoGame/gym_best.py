@@ -30,17 +30,9 @@ def simulate_species(net, env, episodes=1, steps=5000, render=False):
     print("Species fitness: %s" % str(fitness))
     return fitness
 
-<<<<<<< HEAD
-with open('./model/winner.pkl', 'rb') as output:
-=======
 with open('./DinoGame/model/winner.pkl', 'rb') as output:
->>>>>>> ec1e62c (fixed pathing issues)
     winner = pickle.load(output)
 
 
 winner_net = nn.create_feed_forward_phenotype(winner)
-<<<<<<< HEAD
 simulate_species(winner_net, env, 1, 1000, render=True)
-=======
-simulate_species(winner_net, env, 1, 1000, render=True)
->>>>>>> ec1e62c (fixed pathing issues)

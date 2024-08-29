@@ -15,11 +15,7 @@ if ! test -f ./DinoGame/model/winner.pkl ; then
   if ! test -f ./DinoGame/model/checkpoint ; then
     python3 ./DinoGame/gym_solver.py --num-cores=$x
   else
-<<<<<<< HEAD
-    python3 ./DinoGame/gym_solver.py --checkpoint model/checkpoint --num-cores=$x
-=======
     python3 ./DinoGame/gym_solver.py --checkpoint ./DinoGame/model/checkpoint --num-cores=$x
->>>>>>> ec1e62c (fixed pathing issues)
   fi
 else
   python3 ./DinoGame/gym_best.py
