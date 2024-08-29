@@ -73,7 +73,11 @@ def train_network(env):
 
     # Simulation
     local_dir = os.path.dirname(__file__)
+<<<<<<< HEAD
     config_path = os.path.join(local_dir, './model/gym_config.txt')
+=======
+    config_path = os.path.join(local_dir, 'model/gym_config.txt')
+>>>>>>> ec1e62c (fixed pathing issues)
     pop = population.Population(config_path)
     # Load checkpoint
     if args.checkpoint:
@@ -85,7 +89,11 @@ def train_network(env):
         pe = parallel.ParallelEvaluator(args.numCores, worker_evaluate_genome)
         pop.run(pe.evaluate, args.generations)
 
+<<<<<<< HEAD
     pop.save_checkpoint("./model/checkpoint")
+=======
+    pop.save_checkpoint("./DinoGame/model/checkpoint")
+>>>>>>> ec1e62c (fixed pathing issues)
 
     # Log statistics.
     statistics.save_stats(pop.statistics)
@@ -99,7 +107,11 @@ def train_network(env):
 
     # Save best network
     import pickle
+<<<<<<< HEAD
     with open('./model/winner.pkl', 'wb') as output:
+=======
+    with open('./DinoGame/model/winner.pkl', 'wb') as output:
+>>>>>>> ec1e62c (fixed pathing issues)
        pickle.dump(winner, output, 1)
 
     print('\nBest genome:\n{!s}'.format(winner))
@@ -108,7 +120,11 @@ def train_network(env):
     input("Press Enter to run the best genome...")
     winner_net = nn.create_feed_forward_phenotype(winner)
     for i in range(10):
+<<<<<<< HEAD
         simulate_species(winner_net, env, 1, args.max_steps, render=False)
+=======
+        simulate_species(winner_net, env, 1, args.max_steps, render=True)
+>>>>>>> ec1e62c (fixed pathing issues)
 
 my_env = gym.make(game_name)
 print ("Input Nodes: %s" % str(len(my_env.observation_space.high)))

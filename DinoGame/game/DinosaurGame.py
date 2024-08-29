@@ -156,7 +156,11 @@ class DinosaurGame(gym.Env):
         self.screen.blit(text, (10,10))
 
         # Draw the player
+<<<<<<< HEAD
         player = pygame.image.load('./dino2.png')
+=======
+        player = pygame.image.load('./DinoGame/game/dino2.png')
+>>>>>>> ec1e62c (fixed pathing issues)
         self.playerRect = pygame.mask.from_surface(player)
         self.screen.blit(player, (self.player_x, self.player_y))
         self.obstacleRects = []
@@ -174,4 +178,8 @@ class DinosaurGame(gym.Env):
         # Set the frame rate
         
         pygame.display.update()  # Update the display
+<<<<<<< HEAD
         self.count+=1
+=======
+        self.count+=1
+>>>>>>> ec1e62c (fixed pathing issues)
